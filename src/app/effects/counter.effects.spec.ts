@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { CounterEffects } from './counter.effects';
 
 describe('CounterEffects', () => {
-  let actions$: Observable<any>;
+  const actions$: Observable<any> = null;
   let effects: CounterEffects;
 
   beforeEach(() => {
