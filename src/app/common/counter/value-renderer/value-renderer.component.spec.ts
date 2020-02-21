@@ -8,9 +8,9 @@ describe('ValueRendererComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ValueRendererComponent ]
+      declarations: [ValueRendererComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

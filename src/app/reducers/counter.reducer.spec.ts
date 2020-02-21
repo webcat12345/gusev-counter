@@ -1,4 +1,4 @@
-import { reducer, initialState } from './counter.reducer';
+import { initialState, reducer } from './counter.reducer';
 
 describe('Counter Reducer', () => {
   describe('an unknown action', () => {

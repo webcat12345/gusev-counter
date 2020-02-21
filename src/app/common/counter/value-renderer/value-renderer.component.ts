@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-value-renderer',
@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ValueRendererComponent implements OnInit {
 
-  constructor() { }
+  @Input() value: number;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

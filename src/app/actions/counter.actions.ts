@@ -1,4 +1,4 @@
-import { createAction, props } from '@ngrx/store';
+import { createAction } from '@ngrx/store';
 
 export const changeCounter = createAction(
   '[Counter] Change',
@@ -9,13 +9,13 @@ export const increaseCounter = createAction(
 );
 
 export const decreaseCounter = createAction(
-  '[Counter] Increase',
+  '[Counter] Decrease',
 );
 
 export const startCounter = createAction(
   '[Counter] Start'
 );
 
-export const endCounter = createAction(
-  '[Counter] End'
+export const stopCounter = createAction(
+  '[Counter] Stop'
 );

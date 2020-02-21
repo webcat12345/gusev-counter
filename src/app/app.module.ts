@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { reducers, metaReducers } from './reducers';
+import { metaReducers, reducers } from './reducers';
 import { AppEffects } from './app.effects';
 
 import { AppComponent } from './app.component';
@@ -27,10 +27,11 @@ import { CounterEffects } from './effects/counter.effects';
     }),
     EffectsModule.forRoot([AppEffects]),
     EffectsModule.forFeature([CounterEffects]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
     CounterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

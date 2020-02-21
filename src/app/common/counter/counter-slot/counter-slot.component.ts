@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 
-import * as CounterStore from '../../../reducers/counter.reducer';
-import { changeCounter } from '../../../actions/counter.actions';
+import * as root from '../../../reducers/index';
+import { startCounter, stopCounter } from '../../../actions/counter.actions';
 
 @Component({
   selector: 'app-counter-slot',
@@ -11,15 +11,23 @@ import { changeCounter } from '../../../actions/counter.actions';
 })
 export class CounterSlotComponent implements OnInit {
 
+  countA$ = this.store.pipe(select(root.selectValueA));
+  countB$ = this.store.pipe(select(root.selectValueB));
+
   constructor(
-    private store: Store<CounterStore.State>
-  ) { }
+    private store: Store<root.State>
+  ) {
+  }
 
   ngOnInit(): void {
   }
 
   start() {
-    this.store.dispatch(changeCounter());
+    this.store.dispatch(startCounter());
+  }
+
+  stop() {
+    this.store.dispatch(stopCounter());
   }
 
 }

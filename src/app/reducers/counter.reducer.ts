@@ -15,8 +15,8 @@ export const initialState: State = {
 
 const counterReducer = createReducer(
   initialState,
-  on(CounterActions.increaseCounter, state => ({ ...state, countA: state.countA + 1 })),
-  on(CounterActions.decreaseCounter, state => ({ ...state, countA: state.countB - 1 })),
+  on(CounterActions.increaseCounter, state => ({...state, countA: state.countA + 1})),
+  on(CounterActions.decreaseCounter, state => ({...state, countB: state.countB - 1})),
 );
 
 export function reducer(state: State | undefined, action: Action) {

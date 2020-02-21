@@ -8,9 +8,9 @@ describe('CounterSlotComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CounterSlotComponent ]
+      declarations: [CounterSlotComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
