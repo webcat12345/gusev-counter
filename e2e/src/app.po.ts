@@ -5,7 +5,37 @@ export class AppPage {
     return browser.get(browser.baseUrl) as Promise<unknown>;
   }
 
-  getTitleText(): Promise<string> {
-    return element(by.css('app-root .content span')).getText() as Promise<string>;
+  getValueARenderer() {
+    return element.all(by.css('app-root .container app-value-renderer')).get(0);
+  }
+
+  getValueA() {
+    return this.getValueARenderer().getText() as Promise<string>;
+  }
+
+  getValueBRenderer() {
+    return element.all(by.css('app-root .container app-value-renderer')).get(1);
+  }
+
+  getValueB() {
+    return this.getValueBRenderer().getText() as Promise<string>;
+  }
+
+  getStartButton() {
+    return element(by.css('app-root .container app-counter-slot .btn-start'));
+  }
+
+  getStopButton() {
+    return element(by.css('app-root .container app-counter-slot .btn-stop'));
+  }
+
+  getPauseButton() {
+    return element(by.css('app-root .container app-counter-slot .btn-pause'));
+  }
+
+  hasClass(ele, cls) {
+    return ele.getAttribute('class').then((classes) => {
+      return classes.split(' ').indexOf(cls) !== -1;
+    });
   }
 }

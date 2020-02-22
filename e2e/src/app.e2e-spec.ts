@@ -1,5 +1,8 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { browser, by, logging } from 'protractor';
+import { wait } from '../../src/app/core/common.util';
+
+
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -8,9 +11,72 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display initial values', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('gusev-counter app is running!');
+    expect(page.getValueA()).toEqual('-5');
+    expect(page.getValueB()).toEqual('10');
+    expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box')), 'border-danger')).toBe(true);
+    expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box')), 'border-primary')).toBe(true);
+  });
+
+  it('should start counter when user click start button', async () => {
+    page.navigateTo();
+    browser.ignoreSynchronization = true;
+    await page.getStartButton().click();
+    await wait(3000);
+    expect(page.getValueA()).toEqual('-1');
+    expect(page.getValueB()).toEqual('2');
+    expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box')), 'border-danger')).toBe(true);
+    expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box')), 'border-primary')).toBe(true);
+  });
+
+  it('should pause counter when user click pause button', async () => {
+    page.navigateTo();
+    browser.ignoreSynchronization = true;
+    await page.getStartButton().click();
+    await wait(3000);
+    expect(page.getValueA()).toEqual('-1');
+    expect(page.getValueB()).toEqual('2');
+    expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box')), 'border-danger')).toBe(true);
+    expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box')), 'border-primary')).toBe(true);
+    await page.getPauseButton().click();
+    await wait(3000);
+    expect(page.getValueA()).toEqual('-1');
+    expect(page.getValueB()).toEqual('2');
+    expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box')), 'border-danger')).toBe(true);
+    expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box')), 'border-primary')).toBe(true);
+  });
+
+  it('should stop counter when user click stop button', async () => {
+    page.navigateTo();
+    browser.ignoreSynchronization = true;
+    await page.getStartButton().click();
+    await wait(3000);
+    expect(page.getValueA()).toEqual('-1');
+    expect(page.getValueB()).toEqual('2');
+    expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box')), 'border-danger')).toBe(true);
+    expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box')), 'border-primary')).toBe(true);
+    await page.getStopButton().click();
+    expect(page.getValueA()).toEqual('-5');
+    expect(page.getValueB()).toEqual('10');
+    expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box')), 'border-danger')).toBe(true);
+    expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box')), 'border-primary')).toBe(true);
+  });
+
+  it('should stop counter when user click stop button', async () => {
+    page.navigateTo();
+    browser.ignoreSynchronization = true;
+    await page.getStartButton().click();
+    await wait(3000);
+    expect(page.getValueA()).toEqual('-1');
+    expect(page.getValueB()).toEqual('2');
+    expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box')), 'border-danger')).toBe(true);
+    expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box')), 'border-primary')).toBe(true);
+    await page.getStopButton().click();
+    expect(page.getValueA()).toEqual('-5');
+    expect(page.getValueB()).toEqual('10');
+    expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box')), 'border-danger')).toBe(true);
+    expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box')), 'border-primary')).toBe(true);
   });
 
   afterEach(async () => {
