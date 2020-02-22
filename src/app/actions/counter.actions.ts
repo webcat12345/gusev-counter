@@ -19,3 +19,7 @@ export const startCounter = createAction(
 export const stopCounter = createAction(
   '[Counter] Stop'
 );
+
+export const resetCounter = createAction(
+  '[Counter] Reset'
+);

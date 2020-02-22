@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 
 import * as root from '../../../reducers/index';
-import { startCounter, stopCounter } from '../../../actions/counter.actions';
+import { resetCounter, startCounter, stopCounter } from '../../../actions/counter.actions';
 
 @Component({
   selector: 'app-counter-slot',
@@ -28,6 +28,10 @@ export class CounterSlotComponent implements OnInit {
 
   stop() {
     this.store.dispatch(stopCounter());
+  }
+
+  reset() {
+    this.store.dispatch(resetCounter());
   }
 
 }

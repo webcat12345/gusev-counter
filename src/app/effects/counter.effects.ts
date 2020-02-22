@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { mapTo, switchMap, takeUntil } from 'rxjs/operators';
+import { map, mapTo, switchMap, takeUntil } from 'rxjs/operators';
 import { timer } from 'rxjs';
 import * as CounterActions from '../actions/counter.actions';
 
@@ -11,6 +11,7 @@ export class CounterEffects {
     ofType(CounterActions.changeCounter.type),
     switchMap(() => [
       CounterActions.increaseCounter(),
+      CounterActions.decreaseCounter(),
       CounterActions.decreaseCounter()
     ])
   ));
@@ -24,6 +25,11 @@ export class CounterEffects {
       )
     ))
   );
+
+  resetCounter$ = createEffect(() => this.actions$.pipe(
+    ofType(CounterActions.resetCounter.type),
+    map(() => CounterActions.stopCounter())
+  ));
 
   constructor(private actions$: Actions) {
   }
