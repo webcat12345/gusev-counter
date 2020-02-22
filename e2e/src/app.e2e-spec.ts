@@ -17,6 +17,8 @@ describe('workspace-project App', () => {
     expect(page.getValueB()).toEqual('10');
     expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box')), 'border-danger')).toBe(true);
     expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box')), 'border-primary')).toBe(true);
+    expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box h3')), 'text-danger')).toBe(true);
+    expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box h3')), 'text-primary')).toBe(true);
   });
 
   it('should start counter when user click start button', async () => {
@@ -28,6 +30,8 @@ describe('workspace-project App', () => {
     expect(page.getValueB()).toEqual('2');
     expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box')), 'border-danger')).toBe(true);
     expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box')), 'border-primary')).toBe(true);
+    expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box h3')), 'text-danger')).toBe(true);
+    expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box h3')), 'text-primary')).toBe(true);
   });
 
   it('should pause counter when user click pause button', async () => {
@@ -39,12 +43,16 @@ describe('workspace-project App', () => {
     expect(page.getValueB()).toEqual('2');
     expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box')), 'border-danger')).toBe(true);
     expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box')), 'border-primary')).toBe(true);
+    expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box h3')), 'text-danger')).toBe(true);
+    expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box h3')), 'text-primary')).toBe(true);
     await page.getPauseButton().click();
     await wait(3000);
     expect(page.getValueA()).toEqual('-1');
     expect(page.getValueB()).toEqual('2');
     expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box')), 'border-danger')).toBe(true);
     expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box')), 'border-primary')).toBe(true);
+    expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box h3')), 'text-danger')).toBe(true);
+    expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box h3')), 'text-primary')).toBe(true);
   });
 
   it('should stop counter when user click stop button', async () => {
@@ -56,11 +64,15 @@ describe('workspace-project App', () => {
     expect(page.getValueB()).toEqual('2');
     expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box')), 'border-danger')).toBe(true);
     expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box')), 'border-primary')).toBe(true);
+    expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box h3')), 'text-danger')).toBe(true);
+    expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box h3')), 'text-primary')).toBe(true);
     await page.getStopButton().click();
     expect(page.getValueA()).toEqual('-5');
     expect(page.getValueB()).toEqual('10');
     expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box')), 'border-danger')).toBe(true);
     expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box')), 'border-primary')).toBe(true);
+    expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box h3')), 'text-danger')).toBe(true);
+    expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box h3')), 'text-primary')).toBe(true);
   });
 
   it('should stop counter when user click stop button', async () => {
@@ -72,11 +84,15 @@ describe('workspace-project App', () => {
     expect(page.getValueB()).toEqual('2');
     expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box')), 'border-danger')).toBe(true);
     expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box')), 'border-primary')).toBe(true);
+    expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box h3')), 'text-danger')).toBe(true);
+    expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box h3')), 'text-primary')).toBe(true);
     await page.getStopButton().click();
     expect(page.getValueA()).toEqual('-5');
     expect(page.getValueB()).toEqual('10');
     expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box')), 'border-danger')).toBe(true);
     expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box')), 'border-primary')).toBe(true);
+    expect(page.hasClass(page.getValueARenderer().element(by.css('.number-box h3')), 'text-danger')).toBe(true);
+    expect(page.hasClass(page.getValueBRenderer().element(by.css('.number-box h3')), 'text-primary')).toBe(true);
   });
 
   afterEach(async () => {
